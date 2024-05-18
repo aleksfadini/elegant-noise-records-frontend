@@ -262,10 +262,10 @@ label {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  font-size: 25px;
+  font-size: 20px;
   // text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5); // Soft black shadow
-  line-height: 0.7;
-  color: rgba(255, 255, 255, 0.7);
+  line-height: 0.8;
+  color: rgba(255, 255, 255, 0.3);
   // background: linear-gradient(to top right, $colorbg-left, $colorbg-right);
 
   // background: linear-gradient(
@@ -296,7 +296,7 @@ label {
 }
 
 .character-background.blur .text {
-  filter: blur(2px);
+  filter: blur(1px);
 }
 
 // @keyframes blur {
@@ -310,3 +310,11 @@ label {
 //     text-shadow: none;
 //   }
 // }
+
+.gradient {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
