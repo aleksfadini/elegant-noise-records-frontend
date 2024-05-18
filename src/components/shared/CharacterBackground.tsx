@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const CharacterBackground: React.FC = () => {
   const generateRandomString = () => {
     const possibleChars =
       'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let text = '';
-    const charactersPerLine = Math.floor(window.innerWidth / 5); // Assuming average char width of 10px
-    const totalLines = Math.floor(window.innerHeight / 5); // Assuming line height of 20px
+    const charactersPerLine = Math.floor(window.innerWidth / 10); // Assuming average char width of 10px
+    const totalLines = Math.floor(window.innerHeight / 20); // Assuming line height of 20px
     const totalChars = charactersPerLine * totalLines;
 
     for (let i = 0; i < totalChars; i++) {
@@ -23,6 +23,8 @@ const CharacterBackground: React.FC = () => {
 
   const [randomString, setRandomString] = useState<string>('');
   const [gradientPosition, setGradientPosition] = useState({ x: 0, y: 0 });
+  const [isBlur, setIsBlur] = useState(false);
+  const blurTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
@@ -39,23 +41,33 @@ const CharacterBackground: React.FC = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      // Update the random string every 0.4 seconds
+      // Add the blur class before changing the random string
+      setIsBlur(true);
+
+      // Update the random string
       setRandomString(generateRandomString());
-    }, 1000);
+
+      // Remove the blur class after a short delay
+      blurTimeoutRef.current = setTimeout(() => {
+        setIsBlur(false);
+      }, 400); // Adjust this delay to match the duration of your CSS animation
+    }, 800);
 
     return () => {
       clearInterval(timer);
+      if (blurTimeoutRef.current) clearTimeout(blurTimeoutRef.current);
     };
   }, []);
+
   return (
     <div
-      className="character-background"
+      className={`character-background ${isBlur ? 'blur' : ''}`}
       style={{
         maskImage: `radial-gradient(circle at ${gradientPosition.x}px ${gradientPosition.y}px, black 10px, transparent 300px)`,
         WebkitMaskImage: `radial-gradient(circle at ${gradientPosition.x}px ${gradientPosition.y}px, black 10px, transparent 300px)`,
       }}
     >
-      {randomString}
+      <div className="text">{randomString}</div>
     </div>
   );
 };
