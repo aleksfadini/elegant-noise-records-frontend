@@ -27,35 +27,39 @@ const CharacterBackground: React.FC = () => {
   const blurTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
+    const timer = setInterval(() => {
+      // Update the random string
+      setRandomString(generateRandomString());
+    }, 800);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+
+  useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
       // Update the position of the radial gradient
       setGradientPosition({ x: event.clientX, y: event.clientY });
+
+      // Add the blur class when the mouse is moving
+      setIsBlur(true);
+
+      // Remove the blur class after a short delay
+      if (blurTimeoutRef.current) clearTimeout(blurTimeoutRef.current);
+      blurTimeoutRef.current = setTimeout(() => {
+        setIsBlur(false);
+      }, 200); // Adjust this delay to match the duration of your CSS animation
     };
 
     window.addEventListener('mousemove', handleMouseMove);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      // Add the blur class before changing the random string
-      setIsBlur(true);
-
-      // Update the random string
-      setRandomString(generateRandomString());
-
-      // Remove the blur class after a short delay
-      blurTimeoutRef.current = setTimeout(() => {
-        setIsBlur(false);
-      }, 400); // Adjust this delay to match the duration of your CSS animation
-    }, 800);
-
-    return () => {
-      clearInterval(timer);
-      if (blurTimeoutRef.current) clearTimeout(blurTimeoutRef.current);
+      if (blurTimeoutRef.current) {
+        clearTimeout(blurTimeoutRef.current);
+        blurTimeoutRef.current = null;
+      }
     };
   }, []);
 
