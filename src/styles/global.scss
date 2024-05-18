@@ -261,7 +261,7 @@ label {
   font-size: 25px;
   // text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5); // Soft black shadow
   line-height: 0.7;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.4);
   // background: linear-gradient(to top right, $colorbg-left, $colorbg-right);
 
   // background: linear-gradient(
@@ -270,11 +270,11 @@ label {
   //   rgba(0, 0, 0, 0.5) 100%
   // );
   // mix-blend-mode: multiply; // Blends the text color with the background
-  -webkit-mask-image: radial-gradient(
-    circle at center,
-    black 5px,
-    transparent 400px
-  );
-  mask-image: radial-gradient(circle at center, black 5px, transparent 400px);
+  // -webkit-mask-image: radial-gradient(
+  //   circle at center,
+  //   black 5px,
+  //   transparent 400px
+  // );
+  // mask-image: radial-gradient(circle at center, black 5px, transparent 400px);
   mix-blend-mode: screen; // Blends the text color with the background
 }

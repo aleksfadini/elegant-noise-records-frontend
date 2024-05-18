@@ -1,4 +1,3 @@
-// components/CharacterBackground.tsx
 import React, { useState, useEffect } from 'react';
 
 const CharacterBackground: React.FC = () => {
@@ -22,24 +21,16 @@ const CharacterBackground: React.FC = () => {
     return text;
   };
 
-  //   const generateRandomString = (length: number) => {
-  //     const possibleChars =
-  //       'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  //     let text = '';
-  //     for (let i = 0; i < length; i++) {
-  //       text += possibleChars.charAt(
-  //         Math.floor(Math.random() * possibleChars.length),
-  //       );
-  //     }
-  //     return text;
-  //   };
-
   const [randomString, setRandomString] = useState<string>('');
+  const [gradientPosition, setGradientPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const handleMouseMove = () => {
+    const handleMouseMove = (event: MouseEvent) => {
       // Update the random string on mouse move
-      setRandomString(generateRandomString()); // Adjust length as needed for your screen size
+      setRandomString(generateRandomString());
+
+      // Update the position of the radial gradient
+      setGradientPosition({ x: event.clientX, y: event.clientY });
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -49,7 +40,17 @@ const CharacterBackground: React.FC = () => {
     };
   }, []);
 
-  return <div className="character-background">{randomString}</div>;
+  return (
+    <div
+      className="character-background"
+      style={{
+        maskImage: `radial-gradient(circle at ${gradientPosition.x}px ${gradientPosition.y}px, black 10px, transparent 500px)`,
+        WebkitMaskImage: `radial-gradient(circle at ${gradientPosition.x}px ${gradientPosition.y}px, black 10px, transparent 500px)`,
+      }}
+    >
+      {randomString}
+    </div>
+  );
 };
 
 export default CharacterBackground;
