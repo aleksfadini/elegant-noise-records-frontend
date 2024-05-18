@@ -1,0 +1,62 @@
+@import '../../styles/variables';
+
+.selectedMenu {
+  a {
+    color: #fff !important;
+    font-size: 1.3rem !important;
+  }
+}
+
+.sidenav {
+  height: 100%;
+  width: 260px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to top, $colorbg-left, $colorbg-right);
+  // background-color: #181818;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 8px;
+  text-decoration: none;
+  color: $color-accent;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.3rem;
+  transition: color 0.4s ease;
+}
+
+.sidenav a:hover {
+  color: #fff;
+}
+
+.socialNetworks {
+  position: fixed;
+  bottom: 40px;
+  padding: 30px;
+  // margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.sidenavDistro {
+  position: fixed;
+  z-index: 1;
+  color: #ffffff96;
+  font-weight: bold;
+  bottom: 20px;
+  left: 47px;
+  font-size: 13px;
+  a {
+    &:hover {
+      color: #aaa26d;
+    }
+  }
+}

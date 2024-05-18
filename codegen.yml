@@ -1,0 +1,15 @@
+overwrite: true
+
+# schema: 'https://api-sa-east-1.hygraph.com/v2/clcrrxpwx0itk01ue4dhrfvag/master'
+schema: 'https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clw6nbbwj04zk07up5lkzrytt/master'
+
+documents: './src/graphql/**/*.graphql'
+
+generates:
+  src/generated/graphql.tsx:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-urql'
+    config:
+      withHooks: true
