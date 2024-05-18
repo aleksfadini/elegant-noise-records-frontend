@@ -26,9 +26,6 @@ const CharacterBackground: React.FC = () => {
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
-      // Update the random string on mouse move
-      setRandomString(generateRandomString());
-
       // Update the position of the radial gradient
       setGradientPosition({ x: event.clientX, y: event.clientY });
     };
@@ -40,12 +37,22 @@ const CharacterBackground: React.FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      // Update the random string every 0.4 seconds
+      setRandomString(generateRandomString());
+    }, 1000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
   return (
     <div
       className="character-background"
       style={{
-        maskImage: `radial-gradient(circle at ${gradientPosition.x}px ${gradientPosition.y}px, black 10px, transparent 500px)`,
-        WebkitMaskImage: `radial-gradient(circle at ${gradientPosition.x}px ${gradientPosition.y}px, black 10px, transparent 500px)`,
+        maskImage: `radial-gradient(circle at ${gradientPosition.x}px ${gradientPosition.y}px, black 10px, transparent 300px)`,
+        WebkitMaskImage: `radial-gradient(circle at ${gradientPosition.x}px ${gradientPosition.y}px, black 10px, transparent 300px)`,
       }}
     >
       {randomString}
