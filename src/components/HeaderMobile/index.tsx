@@ -18,6 +18,7 @@ export default function Header() {
                 alt="logo"
                 width="189"
                 height="60"
+                unoptimized={true}
                 style={{ cursor: `pointer` }}
               />
             </Link>

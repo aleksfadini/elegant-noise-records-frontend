@@ -2,9 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const CharacterBackground: React.FC = () => {
   const generateRandomString = () => {
-    const possibleChars =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let text = '';
+    const possibleChars = `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`;
+    let text = ``;
     const charactersPerLine = Math.floor(window.innerWidth / 4); // Assuming average char width of 10px
     const totalLines = Math.floor(window.innerHeight / 3); // Assuming line height of 20px
     const totalChars = charactersPerLine * totalLines;
@@ -15,13 +14,13 @@ const CharacterBackground: React.FC = () => {
       );
       if ((i + 1) % charactersPerLine === 0) {
         // Insert a new line at every 'charactersPerLine' characters
-        text += '\n';
+        text += `\n`;
       }
     }
     return text;
   };
 
-  const [randomString, setRandomString] = useState<string>('');
+  const [randomString, setRandomString] = useState<string>(``);
   const [gradientPosition, setGradientPosition] = useState({ x: 0, y: 0 });
   const [isBlur, setIsBlur] = useState(false);
   const blurTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -55,10 +54,10 @@ const CharacterBackground: React.FC = () => {
       }, 200); // Adjust this delay to match the duration of your CSS animation
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener(`mousemove`, handleMouseMove);
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener(`mousemove`, handleMouseMove);
       if (blurTimeoutRef.current) {
         clearTimeout(blurTimeoutRef.current);
         blurTimeoutRef.current = null;
@@ -67,14 +66,14 @@ const CharacterBackground: React.FC = () => {
   }, []);
 
   return (
-    <div className={`character-background ${isBlur ? 'blur' : ''}`}>
+    <div className={`character-background ${isBlur ? `blur` : ``}`}>
       <div
         className="gradient"
         style={{
           maskImage: `radial-gradient(circle at ${gradientPosition.x}px ${gradientPosition.y}px, black 10px, transparent 200px)`,
           WebkitMaskImage: `radial-gradient(circle at ${gradientPosition.x}px ${gradientPosition.y}px, black 10px, transparent 200px)`,
           opacity: isBlur ? 0 : 1,
-          transition: 'opacity 0.4s',
+          transition: `opacity 0.4s`,
         }}
       >
         <div className="text">{randomString}</div>
@@ -85,7 +84,7 @@ const CharacterBackground: React.FC = () => {
           maskImage: `radial-gradient(circle at ${gradientPosition.x}px ${gradientPosition.y}px, black 10px, transparent 150px)`,
           WebkitMaskImage: `radial-gradient(circle at ${gradientPosition.x}px ${gradientPosition.y}px, black 10px, transparent 150px)`,
           opacity: isBlur ? 1 : 0,
-          transition: 'opacity 0.4s',
+          transition: `opacity 0.4s`,
         }}
       >
         <div className="text">{randomString}</div>

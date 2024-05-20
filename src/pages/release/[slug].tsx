@@ -14,22 +14,19 @@ export default function Release() {
   const [color, setColor] = useState<string>(`#111111`);
   const router = useRouter();
   const { slug } = router.query;
-
-  console.log('SLUG IS: ', slug);
-
   const [result, error] = useQuery({
     query: ReleaseDocument,
     variables: { slug },
     requestPolicy: `cache-and-network`,
   });
 
-  useEffect(() => {
-    // Add useEffect here
-    if (error) {
-      console.log('Error quering RLEASE DOC', error);
-      console.log('RESULT', result);
-    }
-  }, [error]);
+  // useEffect(() => {
+  //   // Add useEffect here
+  //   if (error) {
+  //     console.log('Error quering RLEASE DOC', error);
+  //     console.log('RESULT', result);
+  //   }
+  // }, [error]);
 
   const release = result.data?.release;
 

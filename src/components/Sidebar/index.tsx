@@ -41,6 +41,7 @@ export const Sidebar = () => {
               alt="logo"
               // layout="fill"
               objectFit="contain"
+              unoptimized={true}
             />
           </div>
         </Link>

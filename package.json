@@ -1,19 +1,20 @@
 {
-  "name": "anunnaki-records",
-  "description": "Brazilian Psytrance Label",
+  "name": "elegant-noise-records",
+  "description": "Elegant Noise Records Label Website",
   "version": "1.0.0",
   "private": true,
-  "author": "Daniel Luiz Alves (daniel.xcoders@gmail.com)",
+  "author": "Aleks Fadini",
   "license": "MIT",
   "keywords": [
     "label",
-    "psytrance",
-    "brazilian"
+    "jazz",
+    "edm"
   ],
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "export": "next export",
     "type-check": "tsc",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
