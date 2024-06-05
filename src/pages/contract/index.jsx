@@ -161,7 +161,10 @@ export default function Component() {
       <Box sx={{ flexGrow: 1 }}>
         <Head>
           <title>Contract | Elegant Noise Records</title>
-          <meta name="description" content="Brazilian Psytrance Label" />
+          <meta
+            name="description"
+            content="Electronica Jazz Experimental Label"
+          />
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <AppBar position="static" color="success">
@@ -384,7 +387,10 @@ export default function Component() {
     <>
       <Head>
         <title>Login | Elegant Noise Records</title>
-        <meta name="description" content="Brazilian Psytrance Label" />
+        <meta
+          name="description"
+          content="Electronica Jazz Experimental Label"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container className={styles.loginContainer}>

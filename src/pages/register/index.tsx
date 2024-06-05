@@ -209,7 +209,10 @@ const RegistrationForm: React.FC = () => {
         <Container maxWidth="md">
           <Head>
             <title>Register | Elegant Noise Records</title>
-            <meta name="description" content="Brazilian Psytrance Label" />
+            <meta
+              name="description"
+              content="Electronica Jazz Experimental Label"
+            />
             <link rel="icon" href="/favicon.ico" />
           </Head>
           <Box

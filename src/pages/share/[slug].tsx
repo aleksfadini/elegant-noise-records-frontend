@@ -56,7 +56,10 @@ const Share: React.FC = () => {
         <title>
           {release?.music_name} - {release?.artist}
         </title>
-        <meta name="description" content="Brazilian Psytrance Label" />
+        <meta
+          name="description"
+          content="Electronica Jazz Experimental Label"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div

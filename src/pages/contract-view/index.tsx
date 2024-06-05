@@ -20,7 +20,10 @@ const FolhasA4Centralizadas = () => {
     <div className={styles.container}>
       <Head>
         <title>Contract Mushadelic</title>
-        <meta name="description" content="Brazilian Psytrance Label" />
+        <meta
+          name="description"
+          content="Electronica Jazz Experimental Label"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.folha}>
