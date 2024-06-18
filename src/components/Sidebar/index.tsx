@@ -83,29 +83,29 @@ export const Sidebar = () => {
         </div>
 
         <div className={styles.socialNetworks}>
-          <a
+          {/* <a
             href="https://www.beatport.com/label/mushadelic-records/84164"
             target="_blank"
             rel="noreferrer"
           >
             <SiBeatport size={22} />
-          </a>
+          </a> */}
           <a
-            href="https://www.instagram.com/mushadelicrecords/"
+            href="https://www.instagram.com/boornazian_jazz/"
             target="_blank"
             rel="noreferrer"
           >
             <SiInstagram size={22} />
           </a>
           <a
-            href="https://www.facebook.com/mushadelicrec"
+            href="https://www.facebook.com/profile.php?id=100073062575248"
             target="_blank"
             rel="noreferrer"
           >
             <SiFacebook size={22} />
           </a>
           <a
-            href="https://soundcloud.com/mushadelicrec"
+            href="https://soundcloud.com/elegantnoiserecords"
             target="_blank"
             rel="noreferrer"
           >
