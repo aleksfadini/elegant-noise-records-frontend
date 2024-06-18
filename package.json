@@ -15,6 +15,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "build-deploy": "next build && sh deploy.sh",
     "type-check": "tsc",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",

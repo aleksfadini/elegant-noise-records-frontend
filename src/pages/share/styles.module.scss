@@ -10,3 +10,9 @@
   flex-direction: column;
   gap: 20px;
 }
+
+.bright-placeholder::placeholder {
+  color: #888; /* Adjust this value to make the placeholder text brighter */
+  opacity: 1; /* Firefox requires this to be set explicitly */
+  font-weight: 800;
+}
