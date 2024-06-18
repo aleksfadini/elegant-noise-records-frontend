@@ -115,7 +115,7 @@ export const Sidebar = () => {
       </div>
       <div
         className={`${styles.sidenavDistro}`}
-        style={{ color: 'rgba(255, 255, 255, 0.2)' }}
+        style={{ color: `rgba(255, 255, 255, 0.2)` }}
       >
         Developed by:{` `}
         <a target="_blank" href="https://aleksfadini.com/" rel="noreferrer">
