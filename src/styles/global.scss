@@ -12,8 +12,9 @@ body {
   );
   // font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
   // Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-family: 'Raleway Dots', sans-serif;
-  font-weight: 400;
+  font-family: 'Oxanium', sans-serif;
+  // font-family: 'Raleway Dots', sans-serif;
+  font-weight: 300;
   min-height: 100vh;
   background-color: black;
 }
@@ -47,7 +48,7 @@ input {
   background: linear-gradient(to bottom left, $colorbg-left, $colorbg-right);
   color: #ffffff !important;
   border-color: $color-accent !important ;
-  font-family: 'Raleway Dots', sans-serif;
+  font-family: 'Oxanium', sans-serif;
 }
 
 textarea {
