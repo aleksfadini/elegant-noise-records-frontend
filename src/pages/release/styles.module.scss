@@ -53,9 +53,10 @@ $shadow-color: rgba(0, 0, 0, 0.2);
   }
 }
 
-.img {
-  border-radius: 5px;
-  // box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+.albumWithBorder .img {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  border: 2px solid black;
+  border-radius: 12px;
 }
 
 .shine {

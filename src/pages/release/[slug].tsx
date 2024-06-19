@@ -50,8 +50,9 @@ export default function Release() {
 
         <div className="columns">
           <div className="column is-one-fifth">
-            <div className={styles.shine}>
-              <ColorExtractor getColors={(colors) => setColor(colors[0])}>
+            {/* <div className={styles.shine}> */}
+            <div className={styles.albumWithBorder}>
+              <ColorExtractor getColors={(colors) => setColor(colors[1])}>
                 <img
                   className={styles.img}
                   src={release?.cover_art?.url}
@@ -69,25 +70,33 @@ export default function Release() {
                 {release?.artist?.toUpperCase()}
               </span>
               <div className={styles.icons}>
-                <a href={release?.buy_link} target="_blank" rel="noreferrer">
-                  <SiBeatport size={25} />
-                </a>
-                <a href={release?.sc_link} target="_blank" rel="noreferrer">
-                  <SiSoundcloud size={25} />
-                </a>
-                <a href={release?.sptfy_link} target="_blank" rel="noreferrer">
-                  <SiSpotify size={25} />
-                </a>
-                <a href={release?.yt_link} target="_blank" rel="noreferrer">
-                  <SiYoutube size={25} />
-                </a>
-                <a href={`/share/${slug}`} target="_blank" rel="noreferrer">
+                {release?.buy_link && (
+                  <a href={release.buy_link} target="_blank" rel="noreferrer">
+                    <SiBeatport size={25} />
+                  </a>
+                )}
+                {release?.sc_link && (
+                  <a href={release.sc_link} target="_blank" rel="noreferrer">
+                    <SiSoundcloud size={25} />
+                  </a>
+                )}
+                {release?.sptfy_link && (
+                  <a href={release.sptfy_link} target="_blank" rel="noreferrer">
+                    <SiSpotify size={25} />
+                  </a>
+                )}
+                {release?.yt_link && (
+                  <a href={release.yt_link} target="_blank" rel="noreferrer">
+                    <SiYoutube size={25} />
+                  </a>
+                )}
+                {/* <a href={`/share/${slug}`} target="_blank" rel="noreferrer">
                   <GiShare size={25} />
-                </a>
+                </a> */}
               </div>
-              {/* <div className={styles.limitText}>
+              <div className={styles.limitText}>
                 <span>{release?.description}</span>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
