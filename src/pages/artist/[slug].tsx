@@ -13,6 +13,7 @@ import {
 import styles from './styles.module.scss';
 
 export default function Artist({ artistReturn }: any) {
+  console.log(artistReturn);
   return (
     <Layout>
       <div className="columns">
@@ -25,29 +26,35 @@ export default function Artist({ artistReturn }: any) {
               {artistReturn.artist_name.toUpperCase()}
             </span>
             <div className={styles.icons}>
-              <a
-                href={artistReturn.instgrm_link}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <SiInstagram size={25} />
-              </a>
-              <a href={artistReturn.fb_link} target="_blank" rel="noreferrer">
-                <SiFacebook size={25} />
-              </a>
-              <a href={artistReturn.sc_link} target="_blank" rel="noreferrer">
-                <SiSoundcloud size={25} />
-              </a>
-              <a
-                href={artistReturn.sptfy_link}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <SiSpotify size={25} />
-              </a>
-              <a href={artistReturn.yt_link} target="_blank" rel="noreferrer">
-                <SiYoutube size={25} />
-              </a>
+              {artistReturn.ig_link && (
+                <a href={artistReturn.ig_link} target="_blank" rel="noreferrer">
+                  <SiInstagram size={25} />
+                </a>
+              )}
+              {artistReturn.fb_link && (
+                <a href={artistReturn.fb_link} target="_blank" rel="noreferrer">
+                  <SiFacebook size={25} />
+                </a>
+              )}
+              {artistReturn.sc_link && (
+                <a href={artistReturn.sc_link} target="_blank" rel="noreferrer">
+                  <SiSoundcloud size={25} />
+                </a>
+              )}
+              {artistReturn.sptfy_link && (
+                <a
+                  href={artistReturn.sptfy_link}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <SiSpotify size={25} />
+                </a>
+              )}
+              {artistReturn.yt_link && (
+                <a href={artistReturn.yt_link} target="_blank" rel="noreferrer">
+                  <SiYoutube size={25} />
+                </a>
+              )}
             </div>
             <div className={styles.limitText}>
               <span>{artistReturn.description}</span>
